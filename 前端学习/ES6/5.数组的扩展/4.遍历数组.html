@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			'use strict'
+			
+			//for....in :遍历对象，也可以来遍历数组，遍历的索引
+			let arr1 = [1,2,3,4,5];
+			for(let a1 in arr1){
+				console.info("索引"+a1);
+			}
+			//for....of :遍历数组，遍历的当前项
+			let arr2 = [1,2,3,4,6];
+			for(let a2 of arr2){
+				console.info("当前项"+a2);
+			}
+			
+			//keys() 遍历索引
+			for(let key of arr2.keys()){
+				console.info("索引:"+key);
+			}
+			
+			//entries() 遍历索引和当前项
+			for(let [index,items] of arr2.entries()){
+				console.info("索引："+index,"当前项："+items);
+			}
+		</script>
+	</body>
+</html>

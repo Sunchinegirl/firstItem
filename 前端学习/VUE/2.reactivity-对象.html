@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="app">
+			<!--使用的属性一定要保证在data中申明过-->
+			{{msg}}
+			{{school.age}}
+			<!--属性不存在-->
+			{{school.address}}
+			{{school.tel}}
+		</div>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			let vm = new Vue({
+				el:'.app',
+				data:{
+					school:{name:'念念',age:'22'},
+					msg:''//初始化
+				}
+			});
+			/*动态添加不存在的属性*/
+			/*后加的属性不会受到响应式的干扰，虽然属性会循环每个对象，但是这个对象的属性刚开始不存在，所以不会受到ObjectDefineProperty()的控制*/
+			//vm.school.address = '湖北武汉';//无效,但是如果先将属性写死就有效
+			
+			//添加数据
+			//vm.$set(vm.school,'address','湖北武汉');//有效，只能添加一个
+			
+			
+			//对象替换的方式，新对象替换老对象
+			//{}：新对象，vm.school：老对象，{address:'湖北武汉'}：添加的新属性
+			//assign()：合并
+			//vm.school = Object.assign({},vm.school,{address:'湖北武汉',tel:"123456789"});有效，可以添加多个属性
+			
+			//利用ES7语法
+			//"...vm.school":新对象，将之前的对象展开，后面是新加的数据
+			//只能在版本60以前的chrom使用
+			vm.school = {...vm.school,...{address:'湖北武汉',tel:"123456789"}}
+			
+			//对象添加属性的办法
+			//1.$set()
+			//2.对象替换的方式
+			//3.或者在数据里面先将属性写死
+			//school:{name:'念念',age:'22',address:''},
+		</script>
+	</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>const</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			'use strict'
+			//const 定义的是静态变量，不能修改，而且必须要赋值
+			//不复制就会报错：Missing initializer in const declaration
+			const g = 10;
+			//g = 1;//报错：Assignment to constant variable不能被修改的
+			
+			//let 同个作用域下不能重复定义变量,const也一样
+			//const g =20;//报错：Identifier 'g' has already been declared
+			
+			//不能重复声明(在同个作用域下,不管是动态变量还是静态变量都不可以重复定义)
+			let a=1;
+			//const a = 2;//报错Identifier 'a' has already been declared
+			{//私有作用域
+				const a = 2;//不会报错
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			'use strict'
+			//空位不是undefined
+			var ary1 = Array(3);//三个空位
+			var ary2 = [undefined,undefined,undefined];
+			//判断索引1位置是否空位
+			console.info(1 in ary1)//false
+			//如果你把一个属性值设为undefined，但是没有使用delete操作符，使用in检查，会返回true.
+			console.info(1 in ary2)//true
+//			var trees = new Array("redwood", "bay", "cedar", "oak", "maple");
+//			delete trees[3];//删除索引
+//			console.info(3 in trees); // returns false
+			
+			let ary3 = [1,,,4,,];//5
+			console.info(ary3.length);
+			ary3.forEach(function(item){
+				console.info(item);//1 //4
+			});
+			//ES5中的方法对空位处理都不太一致，大部分都是跳过空位的
+			console.info(ary3.map(function(item){
+				return item;
+			}));//[1, undefined × 2, 4, undefined × 1]
+			//ES6中的方法会将空位处理为undefined
+			ary3.find(function(item){
+				console.info(item);//1 //undefined //undefined //4 //undefined
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			'use strict'
+			//copyWithin(target,start,end)
+			//target:必填的，索引位置，从该位置开始替换数据
+			//start：选填，默认值0，从该位置开始读取数据
+			//end：选填，默认值为数组的长度，到该位置前停止读取数据
+			let ary = [1,2,3,4,5,6,7,8];
+			console.info(ary.copyWithin(0,1,5));//[2, 3, 4, 5, 5, 6, 7, 8]
+			//表示从索引4处之前开始替换，替换内容是从索引1到索引5之间的参数，如果替换的内容超出数组长度，则超出部分不要
+			let ary1 = [1,2,3,4,5,6,7,8,9];
+			console.info(ary1.copyWithin(6,2,6));//[1,2,3,4,5,6,3,4,5]
+			
+			/*find() 先遍历当前的数组，一项一项的执行，一旦返回值为true，停止往下查找
+			*返回当前项,一直到最后一项还没有返回true,最终结果就是undefined
+			*item:当前项,index:索引,input:原数组
+			*/
+			console.info(
+				ary .find(function(item,index,input){
+					return item == 6;					
+				}));//6
+				//findIndex() 返回值是当前索引，一直都没有返回true的，最终结果就是undefined
+				console.info(
+				ary1 .findIndex(function(item,index,input){
+					return item == 6;					
+				}));//5
+				
+				/*fill(value,start,end); 填充数组，可能会改变原数组
+				 * value：必填的，填充的值
+				 * start：选填，默认值为0，开始填充的位置，包括当前位置
+				 * end：选填，默认值为数组的长度，到该位置前停止填充，比包括当前位置
+				 */
+				let ary2 = [1,2,3,4,5]
+				console.info(ary2.fill(1));//[1, 1, 1, 1, 1]
+				console.info(ary2.fill("哈哈",2,7));//[1, 1, "哈哈", "哈哈", "哈哈"]
+				//得到七个1的数组
+				ary2 = Array(7);//先初始化
+				console.info(ary2.fill(1));// [1, 1, 1, 1, 1, 1, 1]
+				
+				//includes();判断数组中有没有某一项，有返回true，没有false
+				console.info(ary2.includes(1));//true
+				console.info(ary2.includes(2));//false 
+				//indexOf() lastIndexOf(),是否存在，存在返回索引，不存在-1
+				console.info(ary2.indexOf(1));//存在返回索引 0
+				console.info(ary2.indexOf(2));//不存在返回 -1
+		</script>
+	</body>
+</html>

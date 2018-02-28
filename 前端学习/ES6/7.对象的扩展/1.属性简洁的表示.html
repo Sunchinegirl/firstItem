@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>属性简洁的表达方式</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			'use strict'
+			let a='aa',b='bb';
+			let obj1={
+				a:"123",
+				b:"456"
+			}
+			console.info(obj1.a);//123
+			console.info(obj1["b"]);//456
+			console.info(obj1);//{a: "123", b: "456"}
+			
+			let obj2={//[a]表示变量,还可以拼接字符串
+				[a]:"AA",
+				[a+b]:"AA+BB",
+				fn(){}
+//				fn:function(){
+//					
+//				}
+			}
+			console.info(obj2);//{aa: "AA", aabb: "AA+BB", fn: ƒ}
+		</script>
+	</body>
+</html>

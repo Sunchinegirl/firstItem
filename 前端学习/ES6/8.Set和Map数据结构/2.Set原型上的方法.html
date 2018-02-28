@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			'use strict'
+			//
+			let set = new Set([1,2,3,1,2,3]);
+			console.info(set);//size 长度
+			//1.add() 增加，之前没有的才可以加上,加在最后面
+			//返回值当前实例，实现链式写法（核心 return this）
+			console.info(set.add(5).add(4));// {1, 2, 3, 5, 4}
+			
+			//2.has() 判断有没有某一项
+			//返回值true/false
+			console.info(set.has(4));//true
+			
+			//3.delete() 删除
+			//返回值 true(删除成功)/false(删除失败，没有这一项)
+			console.info(set.delete(4));//true
+			console.info(set.delete(6));//false
+			console.info(set);//{1, 2, 3, 5}
+			
+			//4.clear() 清空
+			//没有返回值 undefined
+			console.info(set.clear());//undefined
+			console.info(set);//{}
+			
+			let arr1 = [1,2,3,4,5,6];
+			let arr2 = [2,4,6,8,10];
+			//并集
+			function bj(arr1,arr2){
+				return [...new Set([...arr1,...arr2])];
+			}
+			console.info(bj(arr1,arr2));//[1, 2, 3, 4, 5, 6, 8, 10]
+			
+			//交集
+			function jj(arr1,arr2){
+				//filter() 过滤
+				return arr1.filter((item) => {
+					return arr2.includes(item);
+				})
+			}
+			console.info(jj(arr1,arr2));//[2, 4, 6]
+			
+			//差急
+			function cj(arr1,arr2){
+				//用并集去过滤交集
+				return bj(arr1,arr2).filter((item) => {
+					return !jj(arr1,arr2).includes(item);
+				});
+			}
+			console.info(cj(arr1,arr2));//[1, 3, 5, 8, 10]
+		</script>
+	</body>
+</html>

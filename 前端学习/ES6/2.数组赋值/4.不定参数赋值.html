@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>不定参数赋值</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			'use strict'
+			//把第一个赋给a，后面的全部赋给b			
+			let [a,...b]= [1,2,3,4,5];
+			console.info(a,b);//1 [2, 3, 4, 5]
+			//通过“...”把数组赋给当前值,不定参数赋值
+			let[,,x,,...y] = [1,2,3,4,5,6,7,8,9,0];
+			console.info(x,y);//3 [5, 6, 7, 8, 9, 0]
+		</script>
+	</body>
+</html>

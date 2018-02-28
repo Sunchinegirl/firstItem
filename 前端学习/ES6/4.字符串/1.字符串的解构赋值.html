@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>字符串的解构赋值</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			'use strict'
+			//字符串的解构赋值与数组的解构赋值类似
+			
+			//此时是将字符串转为类似数组的一个对象
+			let [x,y,z] = "1234";			
+			console.info(x,y,z);//1 2 3
+			
+			let {length} = "123456";//内置对象
+			console.info(length);//6
+			
+			console.info(Array("123456"));//["123456"]
+ 		</script>
+	</body>
+</html>

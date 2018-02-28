@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Object类上的方法</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			'use strict'
+			//Object.is() 判断两个值是否相等
+			// === 绝对相等
+			console.info(Object.is(NaN,12));//false
+			
+			let ary=[1,2,NaN,NaN,1,2];
+			console.info(ary.includes(NaN));//true
+			
+			//去重
+			let arr=[];
+			ary.forEach(function(item){
+				var f = true;
+				for (var i=0;i<arr.length;i++) {
+					if(Object.is(item,arr[i])){
+						f = false;
+					}
+				}
+				if(f){
+					arr.push(item);
+				}
+			});
+			/*ary.forEach((item) =>{
+				var f = true;
+				for(var i=0;i<arr.length;i++){
+					if(Object.is(item,arr[i])){//如果通过“==”来判断，NaN不能去重
+						f = false;
+					}					
+				}
+				if(f){
+					arr.push(item);
+				}
+			});*/
+			console.info(arr);//[1, 2, NaN]
+			
+			//Object.assign(obj1,obj2) 合并对象
+			//将obj2合并到obj1上，返回obj1
+			let obj1={a:"1"},obj2={b:1};
+			console.info(Object.assign(obj1,obj2));//{a: "1", b: 1}
+			console.info(Object.assign(obj1,obj2)==obj1);//true
+			
+			//Object.getOwnPropertyDescriptor() 获取一个对象下面对一个属性的描述
+			//字符串的length是不可枚举不可修改的，数组的可以枚举不能修改
+			let str = "123";
+			let ary1 = [1,2,3];
+			console.info(Object.getOwnPropertyDescriptor(str,"length"));
+			console.info(Object.getOwnPropertyDescriptor(ary1,"length"));
+			
+			//属性的遍历
+			//for in
+			//Object.keys();返回值是一个数组，包括对象自身的（私有属性）所有的可枚举的属性
+			//Object.getOwnPropertyNames()返回值是一个数组，包括对象自身的（私有属性）所有的不可枚举的属性
+			
+		</script>
+	</body>
+</html>

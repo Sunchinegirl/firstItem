@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			'use strict'
+			let obj = {y:2};
+			console.info(obj.x);//undefined
+			let {x,y} = {y:2} ;
+			console.info(x,y);//undefined 2
+			let {m=1,n} = {n:2} ;
+			console.info(m,n);//1 2
+			
+			let {m1:n1} = {};//m1:undefined
+			console.info(n1)//undefined
+			
+			let {m2:n2=4} = {};//m2:undefined
+			console.info(n2)//4 
+			
+			let {a:cc=12} = {a:12};
+			console.info(cc);//12
+			//默认值生效的条件是对象的属性值必须是严格等于（===）undefined，
+			
+//			let {v=3} = {v:undefined};
+//			console.info(v);//3
+			let {v=3} = {v:null};
+			console.info(v);//null
+			
+			let {f:{b}} = {b:"bb"};
+			//f:undefined
+			//{b} = undefined;
+			console.info(b);//Cannot match against 'undefined' or 'null'.
+			//如果解构模式中嵌套的是对象，而且子对象所在的父属性不存在就会报错
+		</script>
+	</body>
+</html>

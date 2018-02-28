@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			'use strict'
+			//赋的值不是一个对象是个其他数据类型的值，会默认将其它数据类型转为对象
+			//let {x,y,__proto__} = 1;//{__proto__:Number}
+			//console.info(x,y,__proto__);//undefined undefined Number
+			//将一个其他数据类型转为对象：object
+			console.info(Object(1));//{__proto__:Number}
+			
+			console.info(Object([1,2,3]));//[1, 2, 3]
+			let {length} = [1,2,3,4];
+			console.info(length);//4
+			
+			let a;			
+			//{a} = {a:"a"};//报错
+			//javaScript 引擎会将{a}理解成一个代码块
+			//为了避免错误，不要将{}写在行首
+			let data = eval("({s:'ss',d:'dd'})");
+			({a} = {a:"aa"});
+ 			console.info(a,data);//aa {s: "ss", d: "dd"}
+ 			//({}=[]);//正确写法
+ 			
+ 			//null和undefined无法转为对象，所以对象结构赋值为一个null和undefined会报错
+ 			let {p:pp} = undefined;
+ 			console.info(pp);//报错：Cannot match against 'undefined' or 'null'
+ 			let {q:qq} = null;
+ 			console.info(qq);//报错：Cannot match against 'undefined' or 'null'
+		</script>
+	</body>
+</html>

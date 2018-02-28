@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			'use strict'
+			//Array(),将传进来的值变成数组返回
+			//注意：只传一个参数n,代表返回数组的长度
+			console.info(Array(1,2,3,4));//[1, 2, 3, 4]
+			console.info(Array( 4));//代表了数组的长度为4 [undefined × 4]
+			//Array.of(),跟Array一样，只有一点区别，
+			//就是传一个参数时候返回就是当前参数组成的数组
+			//解决了只传一个参数时返回不是数组的长度，而是由当前参数组成的数组
+			console.info(Array.of(4));//[4]
+			
+			//Array.from()
+			//参数：数组或者类数组
+			//返回值是一个新数组
+			//如果传进来的参数是一个数组，那就克隆一个一模一样的数组
+			let ary = [1,2,3];
+			let newAry = Array.from(ary);
+			console.info(newAry);// [1, 2, 3]
+			//如果是一个类数组，就将类数组变成一个数组
+			function toArray(){
+				//arguments 类数组
+				return Array.from(arguments)
+			}
+			console.info(toArray(1,2,3,4));//[1, 2, 3, 4]
+		</script>
+	</body>
+</html>

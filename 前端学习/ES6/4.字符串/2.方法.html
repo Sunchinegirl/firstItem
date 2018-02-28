@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			'use strict'
+			//indexOf 判断字符串中有没有某个指定字符，有：返回索引；没有：返回-1
+						
+			let str = "asfwgergerg3wre";
+			//includes() 判断字符串中有没有指定字符，有:返回true；没有：返回false
+			//第二个参数：开始查找的索引，默认是0
+			console.info(str.includes('a'));//true
+			console.info(str.includes('a',2));//false
+			
+			//startsWith() 是不是以某个字符作为开头，有:返回true；没有：返回false
+			//第二个参数：开始查找的索引，默认是0
+			console.info(str.startsWith('a'));//true
+			console.info(str.startsWith('a',2));//false
+			
+			//endsWith() 是不是以某个字符作为结尾，有:返回true；没有：返回false
+			console.info(str.endsWith('a'));//false
+			console.info(str.endsWith('e'));//true
+			
+			//repeat(n),将字符串重复n次返回得到一个新的字符串，并且原字符串不变
+			//n：表示重复次数
+			console.info(str.repeat(2));//asfwgergerg3wreasfwgergerg3wre
+			//小数，向下取整
+			console.info(str.repeat(2.7));//asfwgergerg3wreasfwgergerg3wre、
+			//负数，报错
+			//console.info(str.repeat(-2));
+			//无限大 Infinity，报错
+			//console.info(str.repeat(Infinity));
+			//负小数 0 ---> -1 ,先进行向下取整运算结果为0，得到空字符串
+			console.info(str.repeat(-0.3));//''
+			//NaN ==> 0
+			console.info(str.repeat(NaN));//''
+			//字符串 先将字符串变为数字
+			console.info(str.repeat("2"));
+		</script>
+	</body>
+</html>

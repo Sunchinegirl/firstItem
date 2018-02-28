@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>函数的nama属性</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			'use strict'
+			let fn = function fn(){
+				console.info(this);
+			}
+			//函数的name就是函数名
+			console.info(fn.name);//fn
+			//匿名函数的name为空
+			console.info((function(){}).name);
+			
+			//bind 改变this,得到一个新的函数bound+函数名
+			let obj = {};
+			let fn1 = fn.bind(obj);
+			fn1();//{} object类型
+			console.info(fn1.name);//bound fn
+			
+			//构造函数("形参")new Function得到的nama都是anonymous
+			let f = new Function("n","return n");
+			console.info(f.name);//anonymous 匿名函数
+		</script>
+	</body>
+</html>

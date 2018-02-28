@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title class="title">{{title}}</title>
+	</head>
+	<body>
+		<div class="app">
+			<!--取值表达式，做一些简单地三元运算，赋值-->
+			{{msg =='hello'?"yes":"no"}}
+		</div>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			let vm1 = new Vue({
+				el:".title",//# . querySelector 选择器
+				data:{//vue会自动将数据挂载在vm上，为什么能实现数据绑定，主要是借用es5的ObjectDefineProperty()方法
+					title:"vue练习"
+				}
+			});
+			let vm2 = new Vue({
+				el:'.app',//# . querySelector 选择器
+				data:{
+					msg:"hello word!"
+				}
+			});
+		</script>
+	</body>
+</html>

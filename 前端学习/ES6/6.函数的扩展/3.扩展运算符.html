@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			'use strict'
+			//"...":扩展运算符，可以将数组变成一个非数组，也可以将非数组变成数组
+			//可以将有'.length'属性和索引的非数组变成一个数组
+			
+			//将数组变成一个非数组
+			let ary1 = [1,2,3];
+			console.info(...ary1);//1 2 3
+			
+			//将非数组变成数组
+			//1.将字符串变成数组
+			let ary2 = "123456";
+			console.info([...ary2]);//["1", "2", "3", "4", "5", "6"]
+			//2.将类数组变成数组
+			function fn(){
+				//sort() 排序
+				//arguments：函数的参数
+				console.info([...arguments].sort());//[1, 2, 3, 4, 5, 7, 8]				
+			}
+			fn(5,3,1,7,8,2,4);
+			
+			//应用
+			//求最大值的方法一：
+			let ary3 = [5,3,1,37,18,22,4];
+			//先将数组变成一个字符串，再用eval()拼接起来
+			console.info(eval("Math.max("+ ary3 +")"));//37
+			//求最大值的方法二：
+			//apply() 改变前面函数的this,给前面函数的this传参数
+			console.info(Math.max.apply(null,ary3));//37			
+			//求最大值的方法三：
+			//通过‘...’扩展运算符将一个数组变成了一个非数组展开
+			console.info(Math.max(...ary3));
+			
+			//concat() 拼接数组
+			let ary4 = [1,2,3],ary5 = [4,5,6];
+			console.info(ary4.concat(ary5));//[1, 2, 3, 4, 5, 6]
+			//先通过‘...’扩展运算符将数组展开再拼接
+			console.info([...ary4,...ary5]);//...ary4,...ary5
+		</script>
+	</body>
+</html>

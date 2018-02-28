@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="app">
+			{{arr}}
+		</div>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			let vm = new Vue({
+				el:".app",
+				data:{
+					arr:[1,2,3]
+				}
+			});
+			//利用索引设置值无效，vue不能响应响应式
+			//vm.arr[0] = "100";//无效
+			//改变数组长度vue也监控不到
+			//vm.arr.length--;//无效
+			
+			//添加新的值
+			//1.变异方法：push() pop() shift() unshift() splice() sort() reverse()等都可以改变原数组的值
+			//vm.arr.push(4,5,6);//有效
+			//2.替换数组：map,filter,concat等方法也可以改变原数组
+			vm.arr = vm.arr.map(item => item+1);//有效
+			
+		</script>
+	</body>
+</html>

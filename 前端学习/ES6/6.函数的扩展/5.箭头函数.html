@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>箭头函数</title>
+	</head>
+	<body>
+		<button id="box">box</button>
+		<script type="text/javascript">
+			'use strict'
+			let fn = (x) => {};
+			//上面代码相当于：			
+			//let fn = function(x){
+			   //  return x;	
+			//}		
+			
+			//x=>x 如果函数体只有一行代码而且是return ;可以简写成箭头函数
+			//function fn(x){
+				//return x;	
+			//}
+			console.info();
+			
+			
+			var f   = v => v;  
+			//上面代码相当于：
+			//var f = function( v )  {  
+			  //  return v;  
+			//}  
+			
+			//箭头函数中this问题
+			//箭头函数是没有this指向的，它里面的this是谁，看他上一级作用域中的this(保证上一级作用域不是箭头函数)
+			let obj = {
+				fn:function(){
+					console.info(this);//当前对象obj {fn: ƒ, fn1: ƒ}
+					let f=()=>{
+						console.info(this)//当前对象obj {fn: ƒ, fn1: ƒ}
+					}
+					f();
+				},
+				fn1:()=>{
+					console.info(this);//Window
+				}
+			}
+			obj.fn();//this == obj
+			obj.fn1();//this == window
+			
+			box.onclick = () =>{
+				console.info(this);//Window
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>指令--v-model：双向数据绑定</title>
+	</head>
+	<body>
+		<div class="app">
+			<!--将我们的视图和数据进行绑定，将msg内容绑定到输入框中，				
+			同样，当输入框的数据发生更改的时候也会将msg值写回到实例上，所以是双向的
+			默认的value会忽略掉value属性，常见的selected、checked属性在vue中都没有
+			-->
+			<input type="text" v-model="msg"/>
+			<!--v-one:绑定一次,将不需要变化的属性放在标签里，这样就不会受到数据变化而影响-->
+			<div v-once>
+				{{msg}}
+			</div>
+			{{msg}}
+			<!--输入框既能表现视图层，也能表现数据层-->
+		</div>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//双向：数据变了，视图也会发生变化，视图也可以跟数据绑定
+			let vm = new Vue({
+				el:".app",
+				data:{
+					msg:'哈哈'
+				}
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			'use strict'
+			//形参是个私有变量
+			let n=1,m=2;
+			function fn1(x=n,y=m){
+				let n=1,m=2;
+				console.info(x,y);
+			}
+			fn1();//n is not defined
+			let x = 20,y=10;
+			function fn2(x=1,y=x){
+				//let x = 20,y=10;
+				console.info(y);
+			}
+			fn2();
+			//形参所在的小括号是一个单独的作用域，
+			//遇到变量了先看自己作用域下有没有，没有再往上一级查找
+		</script>
+	</body>
+</html>

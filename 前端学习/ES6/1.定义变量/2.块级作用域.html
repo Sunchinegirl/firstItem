@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>块级作用域</title>
+	</head>
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+		<script type="text/javascript">
+			'use strict'
+			//{}  大括号包起来的都是块级作用域,是一个私有作用域
+			/*function fn(){
+				let a = 0;
+				console.info(a);
+			}
+			fn();*/
+			//if(){}else{}
+			//for(){}
+			
+			
+			/*let a=10;
+			if(a){//私有作用域		
+				//私有作用域下面变量重新声明
+				console.info(a);//a is not defined
+				let a=1;
+				console.info(a);//1
+			}*/
+			
+			
+			/*let list= document.getElementsByTagName("li");
+			for(var i=0;i<list.length;i++){//用闭包来解决
+				console.info(i);
+				//绑定事件是异步，点击的时候i已经循环到最后一个了
+				list[i].onclick = function(){
+					console.info(i);//4 4 4 4
+				}
+			}*/
+			
+			/*let 定义变量，在块级作用域中，每执行一次都会生成一个私有的作用域
+			 *块级作用域里面的变量就跟闭包一样，私有变量不共用
+			 */
+			/*for(let i=0;i<list.length;i++){
+				list[i].onclick = function(){
+					console.info(i);//0 1 2 3
+				}
+			}*/
+			
+			/*let a=1;
+			function fn(){
+				console.info(a);//报错a is not defined
+				let a=0;
+				console.info(a);//0
+			}
+			fn();*/
+			
+			
+			//自执行函数
+			{
+				let a=100;
+				console.info(a);
+			}
+			
+			let obj = {};
+			//注意：eval将字符串转为对象的时候，一定要加一个小括号(),不然就成了自执行函数
+		</script>
+	</body>
+</html>

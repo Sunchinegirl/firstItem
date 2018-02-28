@@ -1,0 +1,56 @@
+vue概述
+	vue.js是一套  构建用户界面  的  渐进式框架
+vue 的特点
+	1. vue只关注视图层(view)
+	2.易学，轻量，灵活的特点
+	3.适用于移动端项目
+	4.渐进式框架
+渐进式的理解
+	声明式渲染（无需关心如何实现）===>核心
+	组件系统  ===>把一个很复杂的页面划分成若干个小组件，通过这些小组件来完成大型项目的开发
+	客户端路由（vue-router）===>实现页面的跳转
+	大规模状态管理（vuex）===>管理数据交互，完善组件开发
+	构建工具（vue-cli）===>打包
+vue的两个核心点
+	1.响应的数据变化
+		当数据发生改变 -->视图的自动更新
+	2.组合的视图组件
+		UI页面映射为组件树
+		划分组件可以提高可维护、可复用、可测试等性能
+MVVM模式
+	M:Model数据模型
+	V:view视图模板
+	VM：view-Model视图模型
+	
+VUE的安装
+	1.npm安装需要下载node
+		命令：
+			npm init -y
+			npm install vue
+	2.应用cdn
+		https://cdn.jsdelivr.net/npm/vue
+	*Vue.js不支持IE8及其以下版本，因为vue采用了es5的版本
+VUE响应数据变化
+	1.对象
+		Vue不能检测到对象属性的添加或删除
+		Vue.set(vm.someObject,'b',2)
+		//assign()合并
+		Object.assign(){...newObj,...oldObj}
+	2.数组
+		Vue不能检测通过索引修改数组 或者通过长度修改数组
+		变异方法：push() pop() shift() unshift() splice() sort() reverse()
+		替换数组：map,filter,concat..........
+指令
+
+	* 什么事指令
+	    指令是一种特殊自定义行间属性，在vue中，指令以v-开头
+	  //可以在标签上添加一些v-开头的指定赋予一些功能
+	* 常用指令
+	   双向数据绑定：v-model   
+	   绑定一次：v-once 将不需要变化的属性放在标签里，这样就不会受到数据变化而影响
+	   绑定html:v-html  将绑定的数据以html的形式展示给用户  
+	   绑定数据：v-text
+	   循环数据：v-for			  
+	   绑定事件：v-on
+	   动态绑定：v-bind		  
+	   显示或者隐藏：v-show/v-if 	

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<button class="btn">点击</button>
+		<button class="btn">点击</button>
+		<button class="btn">点击</button>
+		<button class="btn">点击</button>
+		<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			/*1.var 定义全局变量会，如果在局部中重新定义会被覆盖定义
+			 *2.let 不会，有块级作用域
+			 */
+			/*var name = 'zach';
+			while (true) {
+			    var name = 'obama';//块级作用域
+			    console.log(name)  //obama
+			    break
+			}			
+			
+			console.log(name)  //obama*/
+			/*var name = 'zach';
+			while (true) {
+			    let name = 'obama';//块级作用域
+			    console.log(name)  //obama
+			    break
+			}			
+			console.log(name)  //zach*/
+			/*var 定义i用来计数的循环变量泄露为全局变量 */
+			/*var a = [];
+			for (var i = 0; i < 10; i++) {
+			  a[i] = function () {
+			    console.log(i);
+			  };
+			}
+			a[5](); // 10*/
+			/*变量i是var声明的，在全局范围内都有效。所以每一次循环，新的i值都会覆盖旧值，
+			*导致最后输出的是最后一轮的i的值。而使用let则不会出现这个问题
+			*/
+			/*var a=[];
+			for(let i=0;i<10;i++){
+				a[i] = function(){
+					console.log(i);
+				}				
+			}
+			a[6]();*/
+			
+			/*var btn = document.querySelectorAll(".btn");
+			console.info(btn.length);
+			for(var i=0;i<btn.length;i++){
+				btn[i].onclick = function(){
+					alert(this.innerText);
+				}
+			}*/
+			/*var btn = $(".btn");
+			for(var i=0;i<btn.length;i++){
+				btn[i].onclick=interface(i);
+			}
+			//用闭包来解决
+			function interface(i){
+				var onclick = function(){
+					alert(i)
+				}
+				return onclick;
+			}*/
+			
+			//const 声明变量，一旦声明就不能改变，否则报错，可以避免未来不小心重名导致的bug
+			//const PI = Math.PI;
+			//PI = 23;//当我们尝试去改变用const声明的常量是，浏览器就会报错
+			//console.info(PI);//报错
+			
+			//const monent = require('moment');
+			//console.info(monent);
+		</script>
+	</body>
+</html>

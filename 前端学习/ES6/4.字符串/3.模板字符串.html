@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			'use strict'
+			//ES5
+			let str = 'I LOVE YOU'
+			document.body.innerHTML = '<h1>'+ str +'</h1>';
+			
+			//ES6
+			let str1 = `<h1>${str}</h1>`;
+			//document.write(str1);
+			document.body.innerHTML +=str1;
+			
+			//普通字符串的换行
+			console.info("hahahahha\nhahhaah");
+			//ES6 保留换行和空格
+			let s1 = `
+			hahaha
+			heiheihei
+			hhhhh
+			   llll 
+			222`;
+			console.info(s1);//原始格式
+			//  \` 转义
+			console.info(`sss\`1234\`abcd`);//sss`1234`abcd
+			
+			//${可以实现运算}
+			let x = 1;
+			let y = 2;
+			let xy = `${x}+${y}=${x+y}`;
+			console.info(xy);//1+2=3
+			
+			//调用函数
+			function fn(x){
+				return x;
+			}
+			let s2 = "xxxx"
+			console.info(`函数fn()输出的结果是${fn(s2)}`);//函数fn()输出的结果是xxxx
+			
+			//引用模板字符串的本身
+			let s3 = 'return `Hello ${wd}`';
+			let fun = new Function('wd',s3);
+			console.info(fun("word"));//Hello word
+
+			
+		</script>
+	</body>
+</html>

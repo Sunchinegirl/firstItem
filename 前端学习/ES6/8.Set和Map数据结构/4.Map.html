@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			'use strict'
+			//1.使用构造函数的方式创建一个实例
+			//2.参数是个数组，数组的每一项都是一个数组，这个数组有两项，第一项作为键key,第二项作为值value
+			//3.对象的属性名(对象的键)只能是字符串，但是这里的key键可以使任意数组类型
+			var map1 = new Map([[1,"a"],["a","A"],[{name:"念念"},"念念"],[/\d+/,"正则"]]);
+			console.info(map1);
+			
+			//方法
+			//get(key) 获取对应的值
+			console.info(map1.get(1));//a
+			//set(key,value) 设置键值
+			map1.set(2,"js");
+			console.info(map1);//增加一个
+			
+			//delete删除, has判断有没有,clear清空
+			
+			let ary = [1,2,3,4,5,6];
+			//将数组变成Map
+			//1,[1]
+			//2,[1,2]
+			//3,[1,2,3]
+			var map = new Map();
+			//遍历数组 index是索引，从0开始
+			ary.forEach((item,index)=>{
+				//slice(start,end)  从已有的数组中返回选定的元素，返回值是一个数组
+				map.set(index+1,ary.slice(0,index+1));
+			});
+			console.info(map);
+			
+			//遍历 forEach(),keys(),values(),entries();
+			map.forEach((value,key,map)=>{
+				//value值，key键，map原Map实例
+				console.info(value,key,map);
+			});
+			for(var key of map.keys()){
+				//key:键
+				
+			}
+			for(var value of map.values()){
+				//value:值
+			}
+			for(var [key,value] of map.entries()){
+				//value值，key键
+			}
+		</script>
+	</body>
+</html>

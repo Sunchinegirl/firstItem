@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			'use strct'
+			//数组是有序的，对象是无序的,是根据属性名来找到对应的属性值
+			let obj = {a1:[1,2,3],a2:"123"};//定义数组
+			//x = obj.a1[0];
+			//y = obj.a1[1];
+			let {a2,a1:[x,y]} = obj;//定义对象
+			console.info(a2,x,y);//123 1 2
+			
+			let obj1 = {s:{n:'1'},n:[1,"2",3,"4"],m:[[1]]};
+			let {m:[x1],s:{n},n:[,...m2]} = obj1;
+			console.info(x1,n,m2);//[1] "1" ["2"3"4"]
+		</script>
+	</body>
+</html>

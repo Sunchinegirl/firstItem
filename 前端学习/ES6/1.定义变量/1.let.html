@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			/*console.info(a);//undefine 只声明未定义
+			var a=1; 
+			console.info(a);//1
+			*/
+			
+			/*
+			//let定义变量没有提前声明（没有预解释）
+			console.info(a); //a is not defined 没有声明
+			let a = 1;
+			console.info(a);//1*/
+			
+			//私有作用域里面let 定义变量也没有预解释
+			/*function fn(){
+				console.info(b);//b is not defined 没有声明
+				let b= 0;
+			}
+			fn();*/
+			
+			/*var b=12;
+			var b=13;
+			function b(){
+				console.info(b);
+			}
+			console.info(b);//13
+			b();//报错 b is not a function*/
+			
+			//let 定义的变量不能重复定义（不管函数还是变量名都不能重复）
+			let b=12;
+			//let b =13;//Identifier 'b' has already been declared
+			//function b(){}//Identifier 'b' has already been declared
+			console.info(b);//报错
+			
+			/*虽然不进行预解释，但是代码执行前上来也是先将定义的变量过滤一遍，
+			 *一旦发现不合法的就直接报错，代码也不会执行了
+			 */
+			/*console.info(A);
+			let A = 10;
+			let A = 30;//先报错 Identifier 'A' has already been declared
+			*/
+		</script>
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			'use strict'
+			let[f0,f1] = [1];
+			console.info(f0,f1);//1 undefined
+			
+			////当数组中有对应的值赋即为所赋值，否则为undefined，有默认值即为默认值
+			let[f2,f3=2] = [1];//默认值2
+			console.info(f2,f3);//1 2
+			
+			/*判断一个位置是否有值，严格按照等号判断：
+			 * 如果数组中成员不严格===undefined，默认值不会生效
+			 */			
+			let [f=1] = [undefined];
+			console.info(f);//1,如果参数值为undefined才会读默认值
+			let [f4=1] = [null];
+			console.info(f);//null
+			
+			function fn(){
+				console.info("哈哈");//不执行
+			}
+			let[x=fn(),y=0] = [1];
+			//只要变量所占在数组中的位置的值不是undefined，fn()根本不会触发执行
+		</script>
+	</body>
+</html>
